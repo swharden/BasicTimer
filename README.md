@@ -9,3 +9,7 @@ StupidTimer is a stupid simple timer for Windows.
 ![](dev/graphics/screenshot.png)
 
 </div>
+
+## Download
+
+* A zipped EXE is on the [Releases page](https://github.com/swharden/StupidTimer/releases)
