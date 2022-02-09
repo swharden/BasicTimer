@@ -3,6 +3,8 @@ name: Build
 on:
   workflow_dispatch:
   push:
+    paths:
+      - "src/**"
   pull_request:
     types: [opened, synchronize, reopened]
 
