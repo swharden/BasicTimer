@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+env:
+  SOLUTION_FILE: "src/StupidTimer.sln"
+
+jobs:
+  deploy:
+    name: 🚀 Publish Packages
+    runs-on: windows-latest
+    steps:
+      - name: 🛒 Checkout
+        uses: actions/checkout@v2
+      - name: ✨ Setup .NET 6
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "6.0.x"
+      - name: 🚚 Restore
+        run: dotnet restore SOLUTION_FILE
+      - name: 🛠️ Build
+        run: dotnet build SOLUTION_FILE --configuration Release --no-restore
