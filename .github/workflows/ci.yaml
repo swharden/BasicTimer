@@ -21,6 +21,6 @@ jobs:
         with:
           dotnet-version: "6.0.x"
       - name: 🚚 Restore
-        run: dotnet restore SOLUTION_FILE
+        run: dotnet restore ${{ env.SOLUTION_FILE }}
       - name: 🛠️ Build
-        run: dotnet build SOLUTION_FILE --configuration Release --no-restore
+        run: dotnet build ${{ env.SOLUTION_FILE }} --configuration Release --no-restore
