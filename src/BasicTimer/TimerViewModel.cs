@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace StupidTimer
+namespace BasicTimer
 {
     internal class TimerViewModel : INotifyPropertyChanged
     {

@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
-namespace StupidTimer
+namespace BasicTimer
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -70,6 +70,6 @@ namespace StupidTimer
             Topmost = ((MenuItem)sender).IsChecked;
 
         private void MenuItem_Version_Click(object sender, RoutedEventArgs e) => 
-            System.Diagnostics.Process.Start("explorer", "https://github.com/swharden/StupidTimer");
+            System.Diagnostics.Process.Start("explorer", "https://github.com/swharden/BasicTimer");
     }
 }
