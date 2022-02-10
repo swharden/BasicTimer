@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStyle="None" 
         ResizeMode="NoResize"
-        Title="Stupid Timer" 
+        Title="Basic Timer" 
         Height="{Binding WindowHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=60}" 
         Width="300"
         MouseDown="Window_MouseDown"
