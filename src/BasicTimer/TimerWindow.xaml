@@ -12,6 +12,7 @@
         Width="300"
         MouseDown="Window_MouseDown"
         >
+
     <Canvas
         Name="MainCanvas"
         Background="{Binding Path=ProgressBackgroundBrush, UpdateSourceTrigger=PropertyChanged, FallbackValue=#003366}" 
@@ -31,16 +32,83 @@
             Height="{Binding ActualHeight, ElementName=MainCanvas}"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center">
+
             <Label.ContextMenu>
                 <ContextMenu Name="cm">
-                    <MenuItem Header="Start" Click="MenuItem_Start_Click"/>
-                    <MenuItem Header="Stop" Click="MenuItem_Stop_Click"/>
-                    <MenuItem Header="Reset" Click="MenuItem_Reset_Click"/>
-                    <MenuItem Header="Restart" Click="MenuItem_Restart_Click"/>
+
+                    <MenuItem Header="Start" Click="MenuItem_Start_Click">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="▶️"
+                                Foreground="Green"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Stop" Click="MenuItem_Stop_Click">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="⏹️"
+                                Foreground="Red"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Reset" Click="MenuItem_Reset_Click">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="⏮️"
+                                Foreground="Black"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Restart" Click="MenuItem_Restart_Click">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="🔁"
+                                Foreground="Green"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+
                     <Separator />
-                    <MenuItem Header="Copy" Click="MenuItem_Copy_Click"/>
+                    <MenuItem Header="Copy" Click="MenuItem_Copy_Click">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="📋"
+                                Foreground="Navy"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+
                     <Separator />
+
                     <MenuItem Header="Font Size">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="🗚"
+                                Foreground="Navy"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
                         <MenuItem Header="8" Click="MenuItem_FontSize_Click" Tag="8"/>
                         <MenuItem Header="12" Click="MenuItem_FontSize_Click" Tag="12"/>
                         <MenuItem Header="18" Click="MenuItem_FontSize_Click" Tag="18"/>
@@ -50,6 +118,15 @@
                         <MenuItem Header="96" Click="MenuItem_FontSize_Click" Tag="96"/>
                     </MenuItem>
                     <MenuItem Header="Progress Unit Size">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="⏱️"
+                                Foreground="Navy"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
                         <MenuItem Header="1 sec" Click="MenuItem_ProgressUnitSize_Click" Tag="1"/>
                         <MenuItem Header="10 sec" Click="MenuItem_ProgressUnitSize_Click" Tag="10"/>
                         <MenuItem Header="30 sec" Click="MenuItem_ProgressUnitSize_Click" Tag="30"/>
@@ -61,13 +138,80 @@
                         <MenuItem Header="1 hr" Click="MenuItem_ProgressUnitSize_Click" Tag="3600"/>
                         <MenuItem Header="Disable" Click="MenuItem_ProgressUnitSize_Click" Tag="0"/>
                     </MenuItem>
-                    <MenuItem Header="Toggle Title Bar" Click="MenuItem_ToggleTitleBar_Click"/>
-                    <MenuItem Header="Always on top" Click="MenuItem_ToggleAlwaysOnTop_Click" IsCheckable="True"/>
-                    <MenuItem Header="Set Colors" Click="MenuItem_SelectColors_Click"/>
+                    
+                    <MenuItem Header="Toggle Title Bar" Click="MenuItem_ToggleTitleBar_Click">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="🗔"
+                                Foreground="Navy"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Always on top" Click="MenuItem_ToggleAlwaysOnTop_Click" IsCheckable="True">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="📌"
+                                Foreground="Red"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Set Colors" Click="MenuItem_SelectColors_Click">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="🎨"
+                                Foreground="Green"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    
                     <Separator />
-                    <MenuItem Header="{Binding VersionString}" Click="MenuItem_Version_Click"/>
-                    <MenuItem Header="Cancel" Click="MenuItem_CloseMenu_Click"/>
-                    <MenuItem Header="Exit" Click="MenuItem_ExitApp_Click"/>
+
+                    <MenuItem Header="{Binding VersionString}" Click="MenuItem_Version_Click">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="⏲️"
+                                Foreground="Black"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Cancel" Click="MenuItem_CloseMenu_Click">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="🔙"
+                                Foreground="Black"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Exit" Click="MenuItem_ExitApp_Click">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="❌"
+                                Foreground="Black"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </ContextMenu>
             </Label.ContextMenu>
         </Label>
