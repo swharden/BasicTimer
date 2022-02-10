@@ -9,7 +9,9 @@
         ResizeMode="NoResize"
         Title="Stupid Timer" 
         Height="{Binding WindowHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-        Width="300">
+        Width="300"
+        MouseDown="Window_MouseDown"
+        >
     <Canvas
         Name="MainCanvas"
         Background="{Binding Path=ProgressBackground, UpdateSourceTrigger=PropertyChanged, FallbackValue=#003366}" 
