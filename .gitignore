@@ -1,4 +1,5 @@
 dev/Release/**
+dev/BasicTimer/**
 dev/*.zip
 
 ## Ignore Visual Studio temporary files, build results, and
