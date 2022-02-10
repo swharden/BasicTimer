@@ -8,25 +8,25 @@
         WindowStyle="None" 
         ResizeMode="NoResize"
         Title="Stupid Timer" 
-        Height="{Binding WindowHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+        Height="{Binding WindowHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=60}" 
         Width="300"
         MouseDown="Window_MouseDown"
         >
     <Canvas
         Name="MainCanvas"
-        Background="{Binding Path=ProgressBackground, UpdateSourceTrigger=PropertyChanged, FallbackValue=#003366}" 
+        Background="{Binding Path=ProgressBackgroundBrush, UpdateSourceTrigger=PropertyChanged, FallbackValue=#003366}" 
         SizeChanged="MainCanvas_SizeChanged">
 
         <Label 
             Name="ProgressBar"
-            Background="{Binding Path=ProgressForeground, UpdateSourceTrigger=PropertyChanged, FallbackValue=#006699}" 
+            Background="{Binding Path=ProgressForegroundBrush, UpdateSourceTrigger=PropertyChanged, FallbackValue=#006699}" 
             Width="{Binding ProgressWidth, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=100}"
             Height="{Binding ActualHeight, ElementName=MainCanvas}" />
         <Label 
             Content="{Binding Text, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, FallbackValue='00:00:00.00'}"
             Foreground="White"
             FontFamily="Lucida Console"
-            FontSize="{Binding FontSize, NotifyOnSourceUpdated=True}"
+            FontSize="{Binding FontSize, NotifyOnSourceUpdated=True, FallbackValue=36}"
             Width="{Binding ActualWidth, ElementName=MainCanvas}"
             Height="{Binding ActualHeight, ElementName=MainCanvas}"
             HorizontalContentAlignment="Center"
@@ -60,6 +60,8 @@
                         <MenuItem Header="1 hr" Click="MenuItem_ProgressUnitSize_Click" Tag="3600"/>
                         <MenuItem Header="Disable" Click="MenuItem_ProgressUnitSize_Click" Tag="0"/>
                     </MenuItem>
+                    <MenuItem Header="Set Background Color" Click="MenuItem_SetBackgroundColor_Click"/>
+                    <MenuItem Header="Set Progress Color" Click="MenuItem_SetProgressColor_Click"/>
                     <MenuItem Header="Toggle Title Bar" Click="MenuItem_ToggleTitleBar_Click"/>
                     <MenuItem Header="Always on top" Click="MenuItem_ToggleAlwaysOnTop_Click" IsCheckable="True"/>
                     <Separator />

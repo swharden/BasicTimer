@@ -24,9 +24,27 @@ namespace BasicTimer
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(WindowHeight)));
             }
         }
-        public Brush ProgressForeground { get; set; } = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#006699"));
 
-        public Brush ProgressBackground { get; set; } = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#003366"));
+        private Brush _progressForegroundBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#006699"));
+        public Brush ProgressForegroundBrush
+        {
+            get => _progressForegroundBrush;
+            set {
+                _progressForegroundBrush = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ProgressForegroundBrush)));
+            }
+        }
+
+        private Brush _progressBackgroundBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#003366"));
+        public Brush ProgressBackgroundBrush
+        {
+            get => _progressBackgroundBrush;
+            set
+            {
+                _progressBackgroundBrush = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ProgressBackgroundBrush)));
+            }
+        }
 
         private int _fontSize = 36;
         public int FontSize

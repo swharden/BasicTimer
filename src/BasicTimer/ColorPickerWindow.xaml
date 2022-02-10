@@ -1,0 +1,59 @@
+﻿<Window x:Class="BasicTimer.ColorPickerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BasicTimer"
+        mc:Ignorable="d"
+        Title="ColorPickerWindow" Height="200" Width="300">
+    <Grid 
+        x:Name="MainGrid"
+        Background="#003366" 
+        >
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <GroupBox 
+            Grid.Row="0"
+            Name="ForegroundGroupBox"
+            Header="Foreground"
+            Foreground="{Binding ElementName=ForegroundTextbox, Path=Foreground}"
+            Background="#006699"
+            Margin="5 0 5 0"
+            >
+            <TextBox 
+                Name="ForegroundTextbox"
+                Background="Transparent"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="36"
+                Foreground="#FFFFFF"
+                FontFamily="Consolas"
+                Text="#006699"
+                TextChanged="ForegroundTextbox_TextChanged"/>
+        </GroupBox>
+
+        <GroupBox 
+            Grid.Row="1"
+            Header="Background"
+            Foreground="{Binding ElementName=BackgroundTextbox, Path=Foreground}"
+            Margin="5 0 5 5"
+            >
+            <TextBox 
+                Name="BackgroundTextbox"
+                Grid.Row="1"
+                Background="Transparent"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="36"
+                Foreground="#FFFFFF"
+                FontFamily="Consolas"
+                TextChanged="BackgroundTextbox_TextChanged"
+                Text="#003366"/>
+        </GroupBox>
+
+    </Grid>
+</Window>

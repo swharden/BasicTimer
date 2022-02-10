@@ -21,34 +21,34 @@ namespace BasicTimer
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly TimerViewModel TimerViewModel = new();
+        private readonly TimerViewModel VM = new();
         private DispatcherTimer RedrawTimer = new();
 
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = TimerViewModel;
+            DataContext = VM;
 
             RedrawTimer.Interval = TimeSpan.FromMilliseconds(10);
-            RedrawTimer.Tick += TimerViewModel.Tick;
+            RedrawTimer.Tick += VM.Tick;
             RedrawTimer.Start();
 
-            TimerViewModel.Start();
+            VM.Start();
         }
 
-        private void MainCanvas_SizeChanged(object sender, SizeChangedEventArgs e) => TimerViewModel.ProgressWidthMax = MainCanvas.ActualWidth;
-        private void MenuItem_Restart_Click(object sender, RoutedEventArgs e) => TimerViewModel.Restart();
-        private void MenuItem_Stop_Click(object sender, RoutedEventArgs e) => TimerViewModel.Stop();
-        private void MenuItem_Start_Click(object sender, RoutedEventArgs e) => TimerViewModel.Start();
-        private void MenuItem_Copy_Click(object sender, RoutedEventArgs e) => Clipboard.SetText(TimerViewModel.Text);
+        private void MainCanvas_SizeChanged(object sender, SizeChangedEventArgs e) => VM.ProgressWidthMax = MainCanvas.ActualWidth;
+        private void MenuItem_Restart_Click(object sender, RoutedEventArgs e) => VM.Restart();
+        private void MenuItem_Stop_Click(object sender, RoutedEventArgs e) => VM.Stop();
+        private void MenuItem_Start_Click(object sender, RoutedEventArgs e) => VM.Start();
+        private void MenuItem_Copy_Click(object sender, RoutedEventArgs e) => Clipboard.SetText(VM.Text);
         private void MenuItem_ExitApp_Click(object sender, RoutedEventArgs e) => Close();
         private void MenuItem_CloseMenu_Click(object sender, RoutedEventArgs e) { }
 
         private void MenuItem_FontSize_Click(object sender, RoutedEventArgs e) =>
-            TimerViewModel.FontSize = int.Parse(((MenuItem)sender).Tag.ToString()!);
+            VM.FontSize = int.Parse(((MenuItem)sender).Tag.ToString()!);
 
         private void MenuItem_ProgressUnitSize_Click(object sender, RoutedEventArgs e) =>
-            TimerViewModel.ProgressWidthSeconds = int.Parse(((MenuItem)sender).Tag.ToString()!);
+            VM.ProgressWidthSeconds = int.Parse(((MenuItem)sender).Tag.ToString()!);
 
         private void MenuItem_ToggleTitleBar_Click(object sender, RoutedEventArgs e)
         {
@@ -56,26 +56,39 @@ namespace BasicTimer
             {
                 WindowStyle = WindowStyle.SingleBorderWindow;
                 ResizeMode = ResizeMode.CanResizeWithGrip;
-                TimerViewModel.WindowHeight = ActualHeight + SystemParameters.WindowCaptionHeight * 2;
+                VM.WindowHeight = ActualHeight + SystemParameters.WindowCaptionHeight * 2;
             }
             else
             {
                 WindowStyle = WindowStyle.None;
                 ResizeMode = ResizeMode.NoResize;
-                TimerViewModel.WindowHeight = ActualHeight - SystemParameters.WindowCaptionHeight * 2;
+                VM.WindowHeight = ActualHeight - SystemParameters.WindowCaptionHeight * 2;
             }
         }
 
-        private void MenuItem_ToggleAlwaysOnTop_Click(object sender, RoutedEventArgs e) => 
+        private void MenuItem_ToggleAlwaysOnTop_Click(object sender, RoutedEventArgs e) =>
             Topmost = ((MenuItem)sender).IsChecked;
 
-        private void MenuItem_Version_Click(object sender, RoutedEventArgs e) => 
+        private void MenuItem_Version_Click(object sender, RoutedEventArgs e) =>
             System.Diagnostics.Process.Start("explorer", "https://github.com/swharden/BasicTimer");
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 DragMove();
+        }
+
+        private void MenuItem_SetBackgroundColor_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void MenuItem_SetProgressColor_Click(object sender, RoutedEventArgs e)
+        {
+            var win = new ColorPickerWindow();
+            win.ShowDialog();
+            VM.ProgressBackgroundBrush = win.BackgroundBrush;
+            VM.ProgressForegroundBrush = win.ForegroundBrush;
+            System.Diagnostics.Debug.WriteLine($"{VM.ProgressBackgroundBrush} {VM.ProgressForegroundBrush}");
         }
     }
 }
