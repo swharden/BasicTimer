@@ -29,7 +29,8 @@ namespace BasicTimer
         public Brush ProgressForegroundBrush
         {
             get => _progressForegroundBrush;
-            set {
+            set
+            {
                 _progressForegroundBrush = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ProgressForegroundBrush)));
             }
@@ -112,9 +113,19 @@ namespace BasicTimer
 
         public void Restart() => Stopwatch.Restart();
 
+        public void Reset() => Stopwatch.Reset();
+
         public void Stop() => Stopwatch.Stop();
 
         public void Start() => Stopwatch.Start();
+
+        public void Pause()
+        {
+            if (Stopwatch.IsRunning)
+                Stopwatch.Stop();
+            else
+                Stopwatch.Start();
+        }
 
         public void Tick()
         {

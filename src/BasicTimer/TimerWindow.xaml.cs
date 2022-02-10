@@ -40,6 +40,8 @@ namespace BasicTimer
         private void MenuItem_Restart_Click(object sender, RoutedEventArgs e) => VM.Restart();
         private void MenuItem_Stop_Click(object sender, RoutedEventArgs e) => VM.Stop();
         private void MenuItem_Start_Click(object sender, RoutedEventArgs e) => VM.Start();
+        private void MenuItem_Pause_Click(object sender, RoutedEventArgs e) => VM.Pause();
+        private void MenuItem_Reset_Click(object sender, RoutedEventArgs e) => VM.Reset();
         private void MenuItem_Copy_Click(object sender, RoutedEventArgs e) => Clipboard.SetText(VM.Text);
         private void MenuItem_ExitApp_Click(object sender, RoutedEventArgs e) => Close();
         private void MenuItem_CloseMenu_Click(object sender, RoutedEventArgs e) { }
@@ -78,11 +80,7 @@ namespace BasicTimer
                 DragMove();
         }
 
-        private void MenuItem_SetBackgroundColor_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
-        private void MenuItem_SetProgressColor_Click(object sender, RoutedEventArgs e)
+        private void MenuItem_SelectColors_Click(object sender, RoutedEventArgs e)
         {
             var win = new ColorPickerWindow();
             win.ShowDialog();

@@ -33,8 +33,9 @@
             VerticalContentAlignment="Center">
             <Label.ContextMenu>
                 <ContextMenu Name="cm">
-                    <MenuItem Header="Stop" Click="MenuItem_Stop_Click"/>
                     <MenuItem Header="Start" Click="MenuItem_Start_Click"/>
+                    <MenuItem Header="Stop" Click="MenuItem_Stop_Click"/>
+                    <MenuItem Header="Reset" Click="MenuItem_Reset_Click"/>
                     <MenuItem Header="Restart" Click="MenuItem_Restart_Click"/>
                     <Separator />
                     <MenuItem Header="Copy" Click="MenuItem_Copy_Click"/>
@@ -60,10 +61,9 @@
                         <MenuItem Header="1 hr" Click="MenuItem_ProgressUnitSize_Click" Tag="3600"/>
                         <MenuItem Header="Disable" Click="MenuItem_ProgressUnitSize_Click" Tag="0"/>
                     </MenuItem>
-                    <MenuItem Header="Set Background Color" Click="MenuItem_SetBackgroundColor_Click"/>
-                    <MenuItem Header="Set Progress Color" Click="MenuItem_SetProgressColor_Click"/>
                     <MenuItem Header="Toggle Title Bar" Click="MenuItem_ToggleTitleBar_Click"/>
                     <MenuItem Header="Always on top" Click="MenuItem_ToggleAlwaysOnTop_Click" IsCheckable="True"/>
+                    <MenuItem Header="Set Colors" Click="MenuItem_SelectColors_Click"/>
                     <Separator />
                     <MenuItem Header="{Binding VersionString}" Click="MenuItem_Version_Click"/>
                     <MenuItem Header="Cancel" Click="MenuItem_CloseMenu_Click"/>
