@@ -6,7 +6,7 @@
 
 <div align="center">
 
-![](dev/graphics/screenshot.png)
+![](dev/graphics/screenshot.gif)
 
 </div>
 
