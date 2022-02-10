@@ -56,6 +56,7 @@
                         <MenuItem Header="15 min" Click="MenuItem_ProgressUnitSize_Click" Tag="900"/>
                         <MenuItem Header="30 min" Click="MenuItem_ProgressUnitSize_Click" Tag="1800"/>
                         <MenuItem Header="1 hr" Click="MenuItem_ProgressUnitSize_Click" Tag="3600"/>
+                        <MenuItem Header="Disable" Click="MenuItem_ProgressUnitSize_Click" Tag="0"/>
                     </MenuItem>
                     <MenuItem Header="Toggle Title Bar" Click="MenuItem_ToggleTitleBar_Click"/>
                     <MenuItem Header="Always on top" Click="MenuItem_ToggleAlwaysOnTop_Click" IsCheckable="True"/>

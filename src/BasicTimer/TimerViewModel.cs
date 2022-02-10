@@ -65,7 +65,19 @@ namespace BasicTimer
             }
         }
 
-        public double ProgressWidth => (Stopwatch.Elapsed.TotalSeconds % ProgressWidthSeconds) / ProgressWidthSeconds * ProgressWidthMax;
+        public double ProgressWidth
+        {
+            get
+            {
+                if (ProgressWidthSeconds == 0)
+                    return 0;
+
+                double progressFraction = (Stopwatch.Elapsed.TotalSeconds % ProgressWidthSeconds) / ProgressWidthSeconds;
+
+                return progressFraction * ProgressWidthMax;
+            }
+
+        }
 
         private readonly System.Diagnostics.Stopwatch Stopwatch = new();
 
