@@ -14,7 +14,7 @@ namespace BasicTimer
         public Version Version => Assembly.GetExecutingAssembly().GetName().Version!;
         public string VersionString => $"Stupid Timer {Version.Major}.{Version.Minor}";
 
-        private double _windowHeight = 100;
+        private double _windowHeight = 60;
         public double WindowHeight
         {
             get => _windowHeight;
