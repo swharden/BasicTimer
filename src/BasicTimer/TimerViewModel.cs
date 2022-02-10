@@ -12,7 +12,7 @@ namespace BasicTimer
     internal class TimerViewModel : INotifyPropertyChanged
     {
         public Version Version => Assembly.GetExecutingAssembly().GetName().Version!;
-        public string VersionString => $"Stupid Timer {Version.Major}.{Version.Minor}";
+        public string VersionString => $"Basic Timer {Version.Major}.{Version.Minor}";
 
         private double _windowHeight = 60;
         public double WindowHeight
