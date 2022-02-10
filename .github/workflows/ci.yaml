@@ -9,7 +9,7 @@ on:
     types: [opened, synchronize, reopened]
 
 env:
-  SOLUTION_FILE: "src/StupidTimer.sln"
+  SOLUTION_FILE: "src/BasicTimer.sln"
 
 jobs:
   deploy:
