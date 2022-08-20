@@ -92,5 +92,12 @@ namespace BasicTimer
             MenuItem menuItem = (MenuItem)sender;
             VM.SetColor(menuItem.Background, menuItem.Foreground);
         }
+
+        private void MenuItem_ShowTitle_Click(object sender, RoutedEventArgs e)
+        {
+            var win = new SetTitleWindow(VM.Title);
+            win.ShowDialog();
+            VM.Title = win.NewTitle;
+        }
     }
 }

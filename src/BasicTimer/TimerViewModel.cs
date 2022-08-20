@@ -84,6 +84,17 @@ namespace BasicTimer
             }
         }
 
+        private string _title = string.Empty;
+        public string Title
+        {
+            get => _title;
+            set
+            {
+                _title = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Title)));
+            }
+        }
+
         public double ProgressWidth
         {
             get

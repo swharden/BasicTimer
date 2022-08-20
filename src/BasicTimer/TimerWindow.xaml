@@ -24,6 +24,15 @@
             Background="{Binding Path=ProgressForegroundBrush, UpdateSourceTrigger=PropertyChanged, FallbackValue=#006699}" 
             Width="{Binding ProgressWidth, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=100}"
             Height="{Binding ActualHeight, ElementName=MainCanvas}" />
+        <Label
+            Content="{Binding Title, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, FallbackValue='Example Title'}"
+            Foreground="White"
+            VerticalContentAlignment="Top"
+            HorizontalContentAlignment="Center"
+            Width="{Binding ActualWidth, ElementName=MainCanvas}"
+            Height="{Binding ActualHeight, ElementName=MainCanvas}"
+            Margin="0 -5 0 0"
+            />
         <Label 
             Content="{Binding Text, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, FallbackValue='00:00:00.00'}"
             Foreground="White"
@@ -32,7 +41,9 @@
             Width="{Binding ActualWidth, ElementName=MainCanvas}"
             Height="{Binding ActualHeight, ElementName=MainCanvas}"
             HorizontalContentAlignment="Center"
-            VerticalContentAlignment="Center">
+            VerticalContentAlignment="Center"
+            Margin="0 4 0 0"
+            >
 
             <Label.ContextMenu>
                 <ContextMenu Name="cm">
@@ -184,6 +195,18 @@
                             <Label 
                                 Content="🎨"
                                 Foreground="Green"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Set Title" Click="MenuItem_ShowTitle_Click">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="T"
+                                Foreground="Black"
                                 Margin="0" 
                                 Padding="0" 
                                 HorizontalContentAlignment="Center" 

@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BasicTimer"
         mc:Ignorable="d"
-        Title="ColorPickerWindow" Height="200" Width="300">
+        Title="ColorPickerWindow" Height="200" Width="300"
+        WindowStartupLocation="CenterScreen"
+        >
     <Grid 
         x:Name="MainGrid"
         Background="#003366" 
