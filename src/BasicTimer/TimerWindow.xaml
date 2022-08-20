@@ -11,6 +11,7 @@
         Height="{Binding WindowHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=60}" 
         Width="300"
         MouseDown="Window_MouseDown"
+        WindowStartupLocation="CenterScreen"
         >
 
     <Canvas
@@ -138,7 +139,7 @@
                         <MenuItem Header="1 hr" Click="MenuItem_ProgressUnitSize_Click" Tag="3600"/>
                         <MenuItem Header="Disable" Click="MenuItem_ProgressUnitSize_Click" Tag="0"/>
                     </MenuItem>
-                    
+
                     <MenuItem Header="Toggle Title Bar" Click="MenuItem_ToggleTitleBar_Click">
                         <MenuItem.Icon>
                             <Label 
@@ -174,7 +175,7 @@
                                 VerticalContentAlignment="Center"/>
                         </MenuItem.Icon>
                     </MenuItem>
-                    
+
                     <Separator />
 
                     <MenuItem Header="{Binding VersionString}" Click="MenuItem_Version_Click">
