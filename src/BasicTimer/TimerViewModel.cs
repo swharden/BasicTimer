@@ -136,5 +136,19 @@ namespace BasicTimer
         public void Tick(object? sender, EventArgs e) => Tick();
 
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        public void SetColor(Brush progressBackground, Brush progressForeground)
+        {
+            ProgressBackgroundBrush = progressBackground;
+            ProgressForegroundBrush = progressForeground;
+            // TODO: set font color
+        }
+
+        public void SetColor(string progressBackground, string progressForeground)
+        {
+            ProgressBackgroundBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(progressBackground));
+            ProgressForegroundBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(progressForeground));
+            // TODO: set font color
+        }
     }
 }

@@ -84,9 +84,13 @@ namespace BasicTimer
         {
             var win = new ColorPickerWindow();
             win.ShowDialog();
-            VM.ProgressBackgroundBrush = win.BackgroundBrush;
-            VM.ProgressForegroundBrush = win.ForegroundBrush;
-            System.Diagnostics.Debug.WriteLine($"{VM.ProgressBackgroundBrush} {VM.ProgressForegroundBrush}");
+            VM.SetColor(win.BackgroundBrush, win.ForegroundBrush);
+        }
+
+        private void MenuItem_Palette_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem menuItem = (MenuItem)sender;
+            VM.SetColor(menuItem.Background, menuItem.Foreground);
         }
     }
 }

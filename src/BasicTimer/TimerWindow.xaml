@@ -164,7 +164,22 @@
                         </MenuItem.Icon>
                     </MenuItem>
 
-                    <MenuItem Header="Set Colors" Click="MenuItem_SelectColors_Click">
+                    <MenuItem Header="Background Color">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="🎨"
+                                Foreground="Green"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="█████" Foreground="#006699" Background="#003366" Click="MenuItem_Palette_Click"/>
+                        <MenuItem Header="█████" Foreground="#E64848" Background="#C21010" Click="MenuItem_Palette_Click"/>
+                        <MenuItem Header="█████" Foreground="#3F4E4F" Background="#2C3639" Click="MenuItem_Palette_Click"/>
+                    </MenuItem>
+
+                    <MenuItem Header="Set Colors Manually" Click="MenuItem_SelectColors_Click">
                         <MenuItem.Icon>
                             <Label 
                                 Content="🎨"
