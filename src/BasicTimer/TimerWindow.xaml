@@ -12,6 +12,7 @@
         Width="300"
         MouseDown="Window_MouseDown"
         WindowStartupLocation="CenterScreen"
+        KeyDown="Window_KeyDown"
         >
 
     <Canvas
@@ -212,6 +213,23 @@
                                 HorizontalContentAlignment="Center" 
                                 VerticalContentAlignment="Center"/>
                         </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Keyboard Shortcuts">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="⌨️"
+                                Foreground="Black"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="Enable" IsCheckable="True" IsChecked="{Binding EnableKeyboardShortcuts}"/>
+                        <Separator />
+                        <MenuItem IsEnabled="False" Header="Space: pause"/>
+                        <MenuItem IsEnabled="False" Header="P: pause"/>
+                        <MenuItem IsEnabled="False" Header="R: restart"/>
                     </MenuItem>
 
                     <Separator />

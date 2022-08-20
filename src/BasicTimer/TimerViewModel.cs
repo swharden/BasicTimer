@@ -14,6 +14,8 @@ namespace BasicTimer
         public Version Version => Assembly.GetExecutingAssembly().GetName().Version!;
         public string VersionString => $"Basic Timer {Version.Major}.{Version.Minor}";
 
+        public bool EnableKeyboardShortcuts { get; set; } = true;
+
         private double _windowHeight = 60;
         public double WindowHeight
         {

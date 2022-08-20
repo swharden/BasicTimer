@@ -99,5 +99,22 @@ namespace BasicTimer
             win.ShowDialog();
             VM.Title = win.NewTitle;
         }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!VM.EnableKeyboardShortcuts)
+                return;
+
+            switch (e.Key)
+            {
+                case Key.P:
+                case Key.Space:
+                    VM.Pause();
+                    return;
+                case Key.R:
+                    VM.Restart();
+                    return;
+            }
+        }
     }
 }
