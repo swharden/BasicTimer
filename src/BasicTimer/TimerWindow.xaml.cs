@@ -33,15 +33,15 @@ namespace BasicTimer
             RedrawTimer.Tick += VM.Tick;
             RedrawTimer.Start();
 
-            VM.Start();
+            VM.Timer.Start();
         }
 
         private void MainCanvas_SizeChanged(object sender, SizeChangedEventArgs e) => VM.ProgressWidthMax = MainCanvas.ActualWidth;
-        private void MenuItem_Restart_Click(object sender, RoutedEventArgs e) => VM.Restart();
-        private void MenuItem_Stop_Click(object sender, RoutedEventArgs e) => VM.Stop();
-        private void MenuItem_Start_Click(object sender, RoutedEventArgs e) => VM.Start();
-        private void MenuItem_Pause_Click(object sender, RoutedEventArgs e) => VM.Pause();
-        private void MenuItem_Reset_Click(object sender, RoutedEventArgs e) => VM.Reset();
+        private void MenuItem_Restart_Click(object sender, RoutedEventArgs e) => VM.Timer.Restart();
+        private void MenuItem_Stop_Click(object sender, RoutedEventArgs e) => VM.Timer.Stop();
+        private void MenuItem_Start_Click(object sender, RoutedEventArgs e) => VM.Timer.Start();
+        private void MenuItem_Pause_Click(object sender, RoutedEventArgs e) => VM.Timer.Pause();
+        private void MenuItem_Reset_Click(object sender, RoutedEventArgs e) => VM.Timer.Reset();
         private void MenuItem_Copy_Click(object sender, RoutedEventArgs e) => Clipboard.SetText(VM.Text);
         private void MenuItem_ExitApp_Click(object sender, RoutedEventArgs e) => Close();
         private void MenuItem_CloseMenu_Click(object sender, RoutedEventArgs e) { }
@@ -109,12 +109,23 @@ namespace BasicTimer
             {
                 case Key.P:
                 case Key.Space:
-                    VM.Pause();
+                    VM.Timer.Pause();
                     return;
                 case Key.R:
-                    VM.Restart();
+                    VM.Timer.Restart();
+                    return;
+                case Key.S:
+                    VM.Timer.Reset();
                     return;
             }
+        }
+
+        private void MenuItem_SetTime_Click(object sender, RoutedEventArgs e)
+        {
+            var win = new SetTimeWindow(VM.Timer.Minutes, VM.Timer.Seconds);
+            win.ShowDialog();
+            if (win.TotalSeconds is not null)
+                VM.Timer.Set(win.TotalSeconds.Value);
         }
     }
 }

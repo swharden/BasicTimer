@@ -97,6 +97,19 @@
                         </MenuItem.Icon>
                     </MenuItem>
 
+                    <MenuItem Header="Set" Click="MenuItem_SetTime_Click">
+                        <MenuItem.Icon>
+                            <Label 
+                                Content="⌚"
+                                Foreground="Black"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    
+                    
                     <Separator />
                     <MenuItem Header="Copy" Click="MenuItem_Copy_Click">
                         <MenuItem.Icon>
@@ -230,6 +243,7 @@
                         <MenuItem IsEnabled="False" Header="Space: pause"/>
                         <MenuItem IsEnabled="False" Header="P: pause"/>
                         <MenuItem IsEnabled="False" Header="R: restart"/>
+                        <MenuItem IsEnabled="False" Header="S: reset"/>
                     </MenuItem>
 
                     <Separator />
