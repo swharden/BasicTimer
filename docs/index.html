@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Basic Timer</title>
+    <meta name='description' content='A basic timer app for Windows' />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .shadow2 {
+            box-shadow: -5px 5px 10px rgba(0, 0, 0, .4);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="my-5 text-center" style="height: 100px;">
+
+            <div class="display-2">Basic Timer</div>
+            <div class="fs-4 fw-light">A basic timer app for Windows</div>
+
+        </div>
+
+        <div class="my-5 text-center" style="height: 80px;">
+            <img src="images/timer-blue.png" class="shadow2"
+                style="position: absolute; z-index: 3; translate: -130px 0px;" />
+            <img src="images/timer-red.png" class="shadow2"
+                style="position: absolute; z-index: 2; translate: -150px 20px;" />
+            <img src="images/timer-green.png" class="shadow2"
+                style="position: absolute; z-index: 1;translate: -170px 40px; " />
+        </div>
+
+        <img src="images/screenshot.gif" class="mx-auto d-block" />
+
+        <div class="text-center">
+            <a class="m-4 btn btn-success btn-lg shadow" href="https://github.com/swharden/BasicTimer/releases">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor"
+                    class="bi bi-download" viewBox="0 0 16 16">
+                    <path
+                        d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                    <path
+                        d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+                </svg>
+                <br>Download
+            </a>
+            <a class="m-4 btn btn-primary btn-lg shadow" href="https://github.com/swharden/BasicTimer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor"
+                    class="bi bi-file-earmark-code" viewBox="0 0 16 16">
+                    <path
+                        d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
+                    <path
+                        d="M8.646 6.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 9 8.646 7.354a.5.5 0 0 1 0-.708zm-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 9l1.647-1.646a.5.5 0 0 0 0-.708z" />
+                </svg>
+                <br>Source Code
+            </a>
+        </div>
+
+        <div class="my-5">
+            <div class="fs-1">Features</div>
+            <ul class="lh-lg">
+                <li>Count up or count down modes</li>
+                <li>Keyboard shortcuts for play/pause/restart</li>
+                <li>Title bar can be hidden</li>
+                <li>Always on top option</li>
+                <li>Fully customizable colors</li>
+                <li>Progressbar size can be modified</li>
+                <li>Timers can be labeled with a title</li>
+                <li>Progress rollovers can play a sound</li>
+                <li>Free and open source software</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer class="bg-light border-top">
+        <div class="d-flex justify-content-between p-3" style="opacity: .5;">
+            <div>
+                BasicTimer is free and <a href="https://github.com/swharden/BasicTimer">open-source</a> software
+                by <a href="https://swharden.com/about">Scott W Harden</a>
+            </div>
+            <div>
+                <a href="">Edit</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
