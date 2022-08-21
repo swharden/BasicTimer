@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Shell;
 using System.Windows.Threading;
 
 namespace BasicTimer
@@ -30,10 +31,17 @@ namespace BasicTimer
             DataContext = VM;
 
             RedrawTimer.Interval = TimeSpan.FromMilliseconds(10);
-            RedrawTimer.Tick += VM.Tick;
+            RedrawTimer.Tick += RedrawTimer_Tick; ;
             RedrawTimer.Start();
 
-            VM.Timer.Start();
+            TaskbarItemInfo = new();
+        }
+
+        private void RedrawTimer_Tick(object sender, EventArgs e)
+        {
+            VM.Tick();
+            TaskbarItemInfo.ProgressState = TaskbarItemProgressState.Normal;
+            TaskbarItemInfo.ProgressValue = VM.ProgressFraction;
         }
 
         private void MainCanvas_SizeChanged(object sender, SizeChangedEventArgs e) => VM.ProgressWidthMax = MainCanvas.ActualWidth;

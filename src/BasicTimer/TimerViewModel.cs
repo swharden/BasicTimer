@@ -20,7 +20,7 @@ namespace BasicTimer
 
         public bool CountDown { get => !Timer.CountingUpward; set => Timer.CountingUpward = !value; }
 
-        public void Tick(object? sender, EventArgs e)
+        public void Tick()
         {
             Timer.UpdateTime();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Text)));
@@ -111,21 +111,22 @@ namespace BasicTimer
             }
         }
 
-        public double ProgressWidth
+        public double ProgressFraction
         {
             get
             {
-                if (ProgressWidthSeconds == 0)
+                double width = ProgressWidthSeconds;
+                double sec = Timer.TimeOnClock.TotalSeconds;
+
+                if (sec == 0)
                     return 0;
 
-                double progressFraction = (Timer.TimeOnClock.TotalSeconds < 0) 
-                        ? (ProgressWidthSeconds - Math.Abs(Timer.TimeOnClock.TotalSeconds) % ProgressWidthSeconds) / ProgressWidthSeconds
-                        : (Timer.TimeOnClock.TotalSeconds % ProgressWidthSeconds) / ProgressWidthSeconds;
-
-                return progressFraction * ProgressWidthMax;
+                return (sec < 0)
+                    ? (width - Math.Abs(sec) % width) / width
+                    : (sec % width) / width;
             }
-
         }
+        public double ProgressWidth => ProgressFraction * ProgressWidthMax;
 
         public void SetColor(Brush progressBackground, Brush progressForeground)
         {
