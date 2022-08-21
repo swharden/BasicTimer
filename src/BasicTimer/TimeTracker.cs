@@ -10,17 +10,44 @@ namespace BasicTimer;
 internal class TimeTracker
 {
 
-    private DateTime Time1 = DateTime.Now; // fixed time (start or target)
-    private DateTime Time2 = DateTime.Now; // changes as timer runs
-    public TimeSpan Elapsed => Time2 - Time1;
+    private DateTime TimeStart = DateTime.Now; // to show a rising time FROM a start point
+    private DateTime TimeNow = DateTime.Now; // changes as timer runs
+    private DateTime TimeEnd = DateTime.Now; // to show a falling time TO a target time
+    public TimeSpan TimeOnClock => CountingUpward ? TimeNow - TimeStart : TimeEnd - TimeNow;
     private bool IsRunning = true;
 
-    public int Minutes => (int)Elapsed.TotalMinutes;
-    public int Seconds => Elapsed.Seconds;
+    private bool _upward = true;
+    public bool CountingUpward
+    {
+        get => _upward;
+        set
+        {
+            _upward = value;
+            if (_upward)
+            {
+                // used to be counting down (toward a future date)
+                // keep the same time on the clock
+                TimeSpan timeOnClock = TimeEnd - TimeNow;
+                TimeStart = TimeNow - timeOnClock;
+            }
+            else
+            {
+                // used to be counting up (from a past date)
+                TimeSpan timeOnClock = TimeNow - TimeStart;
+                TimeEnd = TimeNow + timeOnClock;
+            }
+        }
+    }
+
+    public int Minutes => (int)TimeOnClock.TotalMinutes;
+    public int Seconds => TimeOnClock.Seconds;
 
     public void Set(int seconds)
     {
-        Time1 = Time2.AddSeconds(-seconds);
+        if (CountingUpward)
+            TimeStart = TimeNow.AddSeconds(-seconds);
+        else
+            TimeEnd = TimeNow.AddSeconds(seconds);
     }
 
     public void Stop()
@@ -30,8 +57,16 @@ internal class TimeTracker
 
     public void Start()
     {
-        Time1 = DateTime.Now - Elapsed;
-        Time2 = DateTime.Now;
+        if (CountingUpward)
+        {
+            TimeStart = DateTime.Now - TimeOnClock;
+            TimeNow = DateTime.Now;
+        }
+        else
+        {
+            TimeEnd = DateTime.Now + TimeOnClock;
+            TimeNow = DateTime.Now;
+        }
         IsRunning = true;
     }
 
@@ -46,8 +81,9 @@ internal class TimeTracker
     public void Reset()
     {
         IsRunning = false;
-        Time1 = DateTime.Now;
-        Time2 = Time1;
+        TimeNow = DateTime.Now;
+        TimeStart = TimeNow;
+        TimeEnd = TimeNow;
     }
 
     public void Restart()
@@ -59,18 +95,18 @@ internal class TimeTracker
     public void UpdateTime()
     {
         if (IsRunning)
-        {
-            Time2 = DateTime.Now;
-        }
+            TimeNow = DateTime.Now;
     }
 
     public override string ToString()
     {
         StringBuilder sb = new();
-        sb.Append($"{Elapsed.Hours:00}:");
-        sb.Append($"{Elapsed.Minutes:00}:");
-        sb.Append($"{Elapsed.Seconds:00}.");
-        sb.Append($"{Elapsed.Milliseconds / 10:00}");
+        if (TimeOnClock.TotalSeconds < 0)
+            sb.Append($"-");
+        sb.Append($"{Math.Abs(TimeOnClock.Hours):00}:");
+        sb.Append($"{Math.Abs(TimeOnClock.Minutes):00}:");
+        sb.Append($"{Math.Abs(TimeOnClock.Seconds):00}.");
+        sb.Append($"{Math.Abs(TimeOnClock.Milliseconds / 10):00}");
         return sb.ToString();
     }
 }

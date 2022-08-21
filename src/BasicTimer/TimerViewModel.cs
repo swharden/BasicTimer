@@ -18,6 +18,8 @@ namespace BasicTimer
         public readonly TimeTracker Timer = new();
         public string Text => Timer.ToString();
 
+        public bool CountDown { get => !Timer.CountingUpward; set => Timer.CountingUpward = !value; }
+
         public void Tick(object? sender, EventArgs e)
         {
             Timer.UpdateTime();
@@ -116,7 +118,9 @@ namespace BasicTimer
                 if (ProgressWidthSeconds == 0)
                     return 0;
 
-                double progressFraction = (Timer.Elapsed.TotalSeconds % ProgressWidthSeconds) / ProgressWidthSeconds;
+                double progressFraction = (Timer.TimeOnClock.TotalSeconds < 0) 
+                        ? (ProgressWidthSeconds - Math.Abs(Timer.TimeOnClock.TotalSeconds) % ProgressWidthSeconds) / ProgressWidthSeconds
+                        : (Timer.TimeOnClock.TotalSeconds % ProgressWidthSeconds) / ProgressWidthSeconds;
 
                 return progressFraction * ProgressWidthMax;
             }

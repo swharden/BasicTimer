@@ -108,6 +108,17 @@
                                 VerticalContentAlignment="Center"/>
                         </MenuItem.Icon>
                     </MenuItem>
+
+                    <MenuItem Header="Count Down" IsCheckable="True" IsChecked="{Binding CountDown}">
+                        <MenuItem.Icon>
+                            <Label 
+                                Foreground="Black"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
                     
                     
                     <Separator />
