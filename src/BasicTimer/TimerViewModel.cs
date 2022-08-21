@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Media;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,11 +21,22 @@ namespace BasicTimer
 
         public bool CountDown { get => !Timer.CountingUpward; set => Timer.CountingUpward = !value; }
 
+        public bool BeepOnRollover { get; set; } = false;
+
         public void Tick()
         {
+            double progressBefore = ProgressFraction;
             Timer.UpdateTime();
+            double progressAfter = ProgressFraction;
+            bool rolledOver = CountDown ? progressBefore < progressAfter : progressBefore > progressAfter;
+
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Text)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ProgressWidth)));
+
+            if (rolledOver & BeepOnRollover)
+            {
+                SystemSounds.Beep.Play();
+            }
         }
 
         public Version Version => Assembly.GetExecutingAssembly().GetName().Version!;
