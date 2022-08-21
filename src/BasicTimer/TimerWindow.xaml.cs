@@ -80,7 +80,7 @@ namespace BasicTimer
             Topmost = ((MenuItem)sender).IsChecked;
 
         private void MenuItem_Version_Click(object sender, RoutedEventArgs e) =>
-            System.Diagnostics.Process.Start("explorer", "https://github.com/swharden/BasicTimer");
+            System.Diagnostics.Process.Start("explorer", "https://swharden.github.io/BasicTimer/");
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
