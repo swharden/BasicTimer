@@ -1,17 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<OutputType>WinExe</OutputType>
-		<TargetFramework>net461</TargetFramework>
-		<Nullable>enable</Nullable>
-		<UseWPF>true</UseWPF>
-		<Version>1.2</Version>
-		<LangVersion>latest</LangVersion>
-		<ApplicationIcon>Resources\icon.ico</ApplicationIcon>
-	</PropertyGroup>
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net461</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <Version>1.3</Version>
+        <LangVersion>latest</LangVersion>
+        <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+    </PropertyGroup>
 
-	<ItemGroup>
-	  <Content Include="Resources\icon.ico" />
-	</ItemGroup>
+    <ItemGroup>
+        <Content Include="Resources\icon.ico" />
+    </ItemGroup>
 
 </Project>
