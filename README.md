@@ -4,7 +4,7 @@
 
 Basic Timer is a simple timer for Windows.
 
-https://swharden.github.io/BasicTimer/
+http://timer.swharden.com/
 
 <div align="center">
 
