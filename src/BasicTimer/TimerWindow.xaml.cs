@@ -110,9 +110,6 @@ namespace BasicTimer
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (!VM.EnableKeyboardShortcuts)
-                return;
-
             switch (e.Key)
             {
                 case Key.P:
@@ -124,6 +121,9 @@ namespace BasicTimer
                     return;
                 case Key.S:
                     VM.Timer.Reset();
+                    return;
+                case Key.T:
+                    MenuItem_ShowTitle_Click(this, null!);
                     return;
             }
         }
