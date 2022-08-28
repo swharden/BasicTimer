@@ -5,7 +5,7 @@
         <TargetFramework>net461</TargetFramework>
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
-        <Version>1.3</Version>
+        <Version>1.4</Version>
         <LangVersion>latest</LangVersion>
         <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
     </PropertyGroup>
