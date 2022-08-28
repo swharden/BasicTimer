@@ -13,6 +13,7 @@
         MouseDown="Window_MouseDown"
         WindowStartupLocation="CenterScreen"
         KeyDown="Window_KeyDown"
+        Topmost="True"
         >
 
     <Canvas
@@ -188,7 +189,7 @@
                         </MenuItem.Icon>
                     </MenuItem>
 
-                    <MenuItem Header="Always on top" Click="MenuItem_ToggleAlwaysOnTop_Click" IsCheckable="True">
+                    <MenuItem Header="Always on top" Click="MenuItem_ToggleAlwaysOnTop_Click" IsCheckable="True" IsChecked="True">
                         <MenuItem.Icon>
                             <Label 
                                 Content="📌"
